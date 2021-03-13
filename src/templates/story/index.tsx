@@ -4,7 +4,7 @@ import Img from 'gatsby-image'
 import get from 'lodash/get'
 import { Layout } from './../../components'
 
-const Stories = ({ ...props }) => {
+const Story = ({ ...props }) => {
 
     const stories = get(props, "data.allContentfulComic.edges").sort((a, b) => {
 
@@ -31,7 +31,7 @@ const Stories = ({ ...props }) => {
     )
 }
 
-export default Stories;
+export default Story;
 
 export const query = graphql`
 query ($slug: String!) {

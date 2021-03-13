@@ -34,9 +34,8 @@ const Stories = ({ ...props }) => {
 export default Stories;
 
 export const query = graphql`
-query ($slug: String!) {
-    allContentfulComic(filter: {story: {slug: {eq: $slug}}, 
-                                node_locale: {eq: "en-US"}}) {
+query {
+    allContentfulComic(filter: {node_locale: {eq: "en-US"}}) {
         edges {
             node {
                 title
