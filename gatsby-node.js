@@ -44,6 +44,7 @@ exports.createPages = ({ graphql, actions }) => {
         component: path.resolve(`src/templates/story/index.tsx`),
         context: {
           slug: slug,
+          book: node.book,
         },
       })
       

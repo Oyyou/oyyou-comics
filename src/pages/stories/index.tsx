@@ -35,7 +35,7 @@ export default Stories;
 
 export const query = graphql`
 query {
-    allContentfulComic(filter: {node_locale: {eq: "en-US"}}) {
+    allContentfulComic {
         edges {
             node {
                 title

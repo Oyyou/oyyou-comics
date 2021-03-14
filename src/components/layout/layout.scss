@@ -21,7 +21,6 @@
     max-width: 100%;
     display: flex;
     flex-direction: row;
-    align-content: stretch;
     flex-flow: wrap;
 
     article {
@@ -33,6 +32,12 @@
     }
 
     @media (max-width: 600px)  {
-        flex-direction: column;
+        article {
+            flex: 1 1 100%;
+        }
+    
+        aside {
+            flex: 1 1 100%;
+        }
     }
 }

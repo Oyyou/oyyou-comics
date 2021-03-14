@@ -1,0 +1,11 @@
+.controls-container {
+  display: flex;
+  flex-direction: row;
+
+  &>a {
+    flex-basis: 50%;
+    &>button{
+      width: 100%;
+    }
+  }
+}
