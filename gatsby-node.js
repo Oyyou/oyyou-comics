@@ -38,23 +38,15 @@ exports.createPages = ({ graphql, actions }) => {
     let stories = [];
     result.data.allContentfulComic.edges.forEach(({ node }) => {
       const slug = node.story.slug;
-      if (stories.includes(slug)) {
-        //return;
-      }
-      createPage({
-        path: `stories/${slug}`,
-        component: path.resolve(`src/templates/stories/index.tsx`),
-        context: {
-          slug: slug,
-        },
-      })
+      
       createPage({
         path: `stories/${slug}/${node.book}`,
-        component: path.resolve(`src/templates/stories/index.tsx`),
+        component: path.resolve(`src/templates/story/index.tsx`),
         context: {
           slug: slug,
         },
       })
+      
       createPage({
         path: `stories/${slug}/${node.book}/${node.page}`,
         component: path.resolve(`src/templates/page/index.tsx`),
@@ -64,7 +56,6 @@ exports.createPages = ({ graphql, actions }) => {
           page: node.page,
         },
       })
-      //stories = [...stories, slug]
     })
   });
 

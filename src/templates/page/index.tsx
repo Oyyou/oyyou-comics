@@ -2,25 +2,21 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import get from 'lodash/get'
-import { Layout } from './../../components'
+import { Layout, Page } from './../../components'
 
-const Page = ({ ...props }) => {
+const PageTemplate = ({ ...props }) => {
 
-    const comic = get(props, "data.contentfulComic");
+  const comic = get(props, "data.contentfulComic");
 
 
-    return (
-        <Layout>
-            <div key={comic.title}>
-                <h1>{comic.title}</h1>
-                <Img fluid={comic.image.fluid} />
-            </div>
-
-        </Layout>
-    )
+  return (
+    <Layout>
+      <Page story={comic} />
+    </Layout>
+  )
 }
 
-export default Page;
+export default PageTemplate;
 
 export const query = graphql`
 query ($slug: String!, $book: Int!, $page: Int!) {

@@ -5,16 +5,16 @@ import get from 'lodash/get'
 import { Layout, Page } from '../components'
 
 
-const IndexPage = ({...props}) => {
+const IndexPage = ({ ...props }) => {
 
   const story = get(props, "data.contentfulComic");
 
-    return(
-      <Layout>
-        <h2>Latet post</h2>
-        <Page story={story} />
-      </Layout>
-    )
+  return (
+    <Layout>
+      <h2>Latet post</h2>
+      <Page story={story} />
+    </Layout>
+  )
 }
 
 export default IndexPage

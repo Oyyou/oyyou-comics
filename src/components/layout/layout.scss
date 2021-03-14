@@ -1,6 +1,6 @@
 .container {
     margin: 0 auto;
-    width: 1024px;
+    max-width: 1024px;
 
     &>* {
         padding: 5px;
@@ -10,6 +10,11 @@
 .header {
     max-width: 100%;
 
+    a {
+      display: block;
+      width: fit-content;
+    }
+
 }
 
 .body {
@@ -17,14 +22,14 @@
     display: flex;
     flex-direction: row;
     align-content: stretch;
+    flex-flow: wrap;
 
     article {
-        flex-grow: 3;
+        flex-basis: 75%;
     }
 
     aside {
-        flex-grow: 1;
-        max-width: 200px;
+        flex-basis: 25%;
     }
 
     @media (max-width: 600px)  {
