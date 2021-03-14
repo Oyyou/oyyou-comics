@@ -32,7 +32,7 @@ export const useGroupBy = (items, keyCondition) => {
     const itemsGroupedByKey = groupBy(items, (e) => e.key);
     */
   
-    let dictionary = [];
+    let dictionary = [] as any;
   
     items.forEach(item => {
       const key = keyCondition(item);
