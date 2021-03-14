@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import get from 'lodash/get'
-import { Layout } from './../../components'
+import { Layout, Page } from './../../components'
 
 const Story = ({ ...props }) => {
 
@@ -21,10 +21,7 @@ const Story = ({ ...props }) => {
         <Layout>
             {stories.map(({ node }) => {
                 return (
-                    <div key={node.title}>
-                        <h1>{node.title}</h1>
-                        <Img fluid={node.image.fluid} />
-                    </div>
+                    <Page key={node.title} story={node} />
                 )
             })}
         </Layout>

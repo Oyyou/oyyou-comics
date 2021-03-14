@@ -23,7 +23,8 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
-    "sass-loader": "^11.0.1"
+    "sass-loader": "^11.0.1",
+    "styled-components": "^5.2.1"
   },
   "devDependencies": {
     "prettier": "2.2.1",
