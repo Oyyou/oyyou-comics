@@ -29,8 +29,10 @@ const Story = ({ ...props }) => {
     `/stories/${slug}/${book + 1}` :
     '';
 
+  const title = stories[0].node.story.title;
+
   return (
-    <Layout>
+    <Layout title={title}>
       <Book stories={stories} />
       <NavigationControls prevPath={prevPath} nextPath={nextPath} />
     </Layout>
@@ -54,7 +56,7 @@ query ($slug: String!, $book: Int!) {
                 }
                 node_locale
                 image {
-                    fluid {
+                    fluid (maxWidth: 800) {
                         ...GatsbyContentfulFluid_withWebp
                     }
                 }

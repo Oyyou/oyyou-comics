@@ -22,7 +22,7 @@ const PageTemplate = ({ ...props }) => {
     '';
 
   return (
-    <Layout>
+    <Layout title={comic.title}>
       <Page story={comic} />
       <NavigationControls prevPath={prevPath} nextPath={nextPath} />
     </Layout>
@@ -45,7 +45,7 @@ query ($slug: String!, $book: Int!, $page: Int!) {
         }
         node_locale
         image {
-            fluid {
+            fluid (maxWidth: 800) {
                 ...GatsbyContentfulFluid_withWebp
             }
         }

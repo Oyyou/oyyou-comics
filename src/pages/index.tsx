@@ -31,7 +31,7 @@ query {
         }
         node_locale
         image {
-            fluid {
+            fluid (maxWidth: 800) {
                 ...GatsbyContentfulFluid_withWebp
             }
         }

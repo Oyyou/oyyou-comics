@@ -16,10 +16,11 @@ const Stories = ({ ...props }) => {
     return 0;
   });
 
+  const title = stories[0].node.story.title;
 
   return (
-    <Layout>
-      <h2>{stories[0].node.story.title}</h2>
+    <Layout title={title}>
+      <h2>{title}</h2>
       {stories.map(({ node }) => {
         return (
           <React.Fragment key={node.title}>
@@ -48,7 +49,7 @@ query ($slug: String!) {
                 }
                 node_locale
                 image {
-                    fluid {
+                    fluid (maxWidth: 800) {
                         ...GatsbyContentfulFluid_withWebp
                     }
                 }
