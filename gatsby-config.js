@@ -28,9 +28,9 @@ if (!spaceId || !accessToken) {
 
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Oyyou Comics`,
+    author: `Niall Lewin`,
+    siteUrl: 'https://oyyou-comics.com'
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

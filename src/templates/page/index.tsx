@@ -15,10 +15,10 @@ const PageTemplate = ({ ...props }) => {
   const nextPage = otherStories.filter(c => c.node.page === page + 1);
   
   const prevPath = prevPage.length > 0 ?
-    `/stories/${slug}/${book}/${page - 1}/` :
+    `/stories/${slug}/${book}/${page - 1}` :
     '';
   const nextPath = nextPage.length > 0 ?
-    `/stories/${slug}/${book}/${page + 1}/` :
+    `/stories/${slug}/${book}/${page + 1}` :
     '';
 
   const title = comic.story.title;
