@@ -11,7 +11,7 @@ const IndexPage = ({ ...props }) => {
 
   return (
     <Layout>
-      <h2>Latet post</h2>
+      <h2>Latest post</h2>
       <Page story={story} />
     </Layout>
   )

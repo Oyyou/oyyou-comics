@@ -15,14 +15,17 @@ const PageTemplate = ({ ...props }) => {
   const nextPage = otherStories.filter(c => c.node.page === page + 1);
   
   const prevPath = prevPage.length > 0 ?
-    `/stories/${slug}/${book}/${page - 1}` :
+    `/stories/${slug}/${book}/${page - 1}/` :
     '';
   const nextPath = nextPage.length > 0 ?
-    `/stories/${slug}/${book}/${page + 1}` :
+    `/stories/${slug}/${book}/${page + 1}/` :
     '';
+
+  const title = comic.story.title;
 
   return (
     <Layout title={comic.title}>
+      <h2>{title}</h2>
       <Page story={comic} />
       <NavigationControls prevPath={prevPath} nextPath={nextPath} />
     </Layout>

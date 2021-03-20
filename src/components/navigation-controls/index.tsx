@@ -30,12 +30,16 @@ const NavigationControls = ({ ...props }) => {
 
   return (
     <div className='controls-container'>
-      <Link to={prevPath}>
-        <button disabled={prevPath.length === 0}>&lt;</button>
-      </Link>
-      <Link to={nextPath}>
-        <button disabled={nextPath.length === 0}>&gt;</button>
-      </Link>
+      {prevPath.length > 0 &&
+        <Link to={prevPath}>
+          <button>&lt;</button>
+        </Link>
+      }
+      {nextPath.length > 0 &&
+        <Link to={nextPath}>
+          <button>&gt;</button>
+        </Link>
+      }
     </div>
   )
 }

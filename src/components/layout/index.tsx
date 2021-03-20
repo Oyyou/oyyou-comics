@@ -46,6 +46,7 @@ const Layout = ({ ...props }) => {
     <div className="container">
       <Helmet>
         <meta charSet="utf-8" />
+        <meta name='content-language' content='en-gb' />
         <meta httpEquiv='content-language' content='en-gb' />
         <meta httpEquiv="x-ua-compatible" content="ie=edge" />
         <meta
