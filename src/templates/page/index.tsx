@@ -1,7 +1,8 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, Link, navigate } from 'gatsby'
 import Img from 'gatsby-image'
 import get from 'lodash/get'
+import { useSwipeable } from 'react-swipeable'
 import { Layout, Page, NavigationControls } from './../../components'
 
 const PageTemplate = ({ ...props }) => {
@@ -13,7 +14,7 @@ const PageTemplate = ({ ...props }) => {
   const otherStories = get(props, "data.otherPages.edges");
   const prevPage = otherStories.filter(c => c.node.page === page - 1);
   const nextPage = otherStories.filter(c => c.node.page === page + 1);
-  
+
   const prevPath = prevPage.length > 0 ?
     `/stories/${slug}/${book}/${page - 1}` :
     '';
@@ -21,11 +22,18 @@ const PageTemplate = ({ ...props }) => {
     `/stories/${slug}/${book}/${page + 1}` :
     '';
 
+  const handlers = useSwipeable({
+    onSwipedLeft: (eventData) => { if (prevPath.length > 0) navigate(prevPath); },
+    onSwipedRight: (eventData) => { if (nextPath.length > 0) navigate(nextPath); }
+  });
+
   const title = comic.story.title;
 
   return (
-    <Layout title={comic.title}>
-      <h2>{title}</h2>
+    <Layout title={comic.title} swipeHandlers={handlers}>
+      <Link to={`/stories/${slug}/1`}>
+        <h2>{title}</h2>
+      </Link>
       <Page story={comic} />
       <NavigationControls prevPath={prevPath} nextPath={nextPath} />
     </Layout>

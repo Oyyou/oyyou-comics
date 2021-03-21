@@ -6,7 +6,7 @@ import './layout.scss'
 
 const Layout = ({ ...props }) => {
 
-  const { children, title, description } = props;
+  const { children, title, description, swipeHandlers } = props;
 
   const {
     allContentfulSlug: { edges: stories },
@@ -62,7 +62,7 @@ const Layout = ({ ...props }) => {
           <h1>Oyyou Comics</h1>
         </Link>
       </nav>
-      <div className="body">
+      <div className="body" {...swipeHandlers}>
         <article>
           {children}
         </article>

@@ -41,6 +41,15 @@ module.exports = {
         name: `images`,
         path: `${__dirname}/src/images`,
       },
+      display: 'swap'
+    },
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+          'pangolin'
+        ]
+      }
     },
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,

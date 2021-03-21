@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import Img from 'gatsby-image'
 import get from 'lodash/get'
 import { Layout, Page } from './../../components'
@@ -16,11 +16,14 @@ const Stories = ({ ...props }) => {
     return 0;
   });
 
-  const title = stories[0].node.story.title;
+  const firstStory = stories[0].node;
+  const title = firstStory.story.title;
 
   return (
     <Layout title={title}>
+    <Link to={`/stories/${firstStory.story.slug}/1`}>
       <h2>{title}</h2>
+    </Link>
       {stories.map(({ node }) => {
         return (
           <React.Fragment key={node.title}>

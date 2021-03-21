@@ -1,18 +1,25 @@
 import React from 'react'
+import { Link } from 'gatsby'
 import { Page } from './../../components'
 import './book.scss'
 
 const Book = ({ ...props }) => {
 
   const { stories } = props;
-  const title = stories[0].node.story.title;
+  const firstStory = stories[0].node;
+  const title = firstStory.story.title;
 
   return (
     <div className='book-container'>
-      <h2>{title}</h2>
+      <Link to={`/stories/${firstStory.story.slug}/1`}>
+        <h2>{title}</h2>
+      </Link>
       {stories.map(({ node }) => {
         return (
-          <Page key={node.title} story={node} />
+          <React.Fragment key={node.title}>
+            <Page story={node} />
+            <br />
+          </React.Fragment>
         )
       })}
     </div>
