@@ -80,7 +80,7 @@ const Layout = ({ ...props }) => {
         </aside>
       </div>
       <footer>
-        <p>Niall was here</p>
+        <p>Built by N+L.</p>
       </footer>
     </div>
   )
