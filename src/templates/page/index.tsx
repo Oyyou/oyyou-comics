@@ -23,8 +23,8 @@ const PageTemplate = ({ ...props }) => {
     '';
 
   const handlers = useSwipeable({
-    onSwipedLeft: (eventData) => { if (prevPath.length > 0) navigate(prevPath); },
-    onSwipedRight: (eventData) => { if (nextPath.length > 0) navigate(nextPath); }
+    onSwipedRight: (eventData) => { if (prevPath.length > 0) navigate(prevPath); },
+    onSwipedLeft: (eventData) => { if (nextPath.length > 0) navigate(nextPath); }
   });
 
   const title = comic.story.title;
