@@ -77,6 +77,10 @@ const Layout = ({ ...props }) => {
               )
             })}
           </div>
+          <br />
+          <Link to='/fan-art'>
+            <p>View Fan Art</p>
+          </Link>
         </aside>
       </div>
       <footer>

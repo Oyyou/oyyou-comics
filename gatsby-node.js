@@ -59,35 +59,7 @@ exports.createPages = ({ graphql, actions }) => {
     })
   });
 
-  const getFanArt = makeRequest(graphql, `
-  {
-    allContentfulFanArt {
-      edges {
-        node {
-          story {
-            title
-            slug
-          }
-        }
-      }
-    }
-   }
-  `).then(result => {
-    result.data.allContentfulFanArt.edges.forEach(({ node }) => {
-      const slug = node.story.slug;
-
-      createPage({
-        path: `stories/${slug}/fan-art`,
-        component: path.resolve(`src/templates/fan-art/index.tsx`),
-        context: {
-          slug: slug,
-        },
-      })
-    })
-  });
-
   return Promise.all([
     getStory,
-    
   ])
 }

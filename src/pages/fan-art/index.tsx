@@ -6,21 +6,18 @@ import { Layout } from './../../components'
 
 const PageTemplate = ({ ...props }) => {
 
-    const { book, page, slug } = props.pageContext;
-
     const fanArt = get(props, "data.allContentfulFanArt.edges");
-    const firstFanArt = fanArt[0].node;
-    const title = firstFanArt.story.title;
 
     return (
-        <Layout title={`${title} - Fan Art`}>
-            <h2>{title} - Fan Art</h2>
+        <Layout title={`Fan Art`}>
+            <h2>Fan Art</h2>
             {fanArt.map(({ node }) => {
                 return (
                     <div key={node.title}>
-                        <p>{node.title}</p>
+                        <h3>{node.title}</h3>
                         <Img fluid={node.image.fluid} />
                         <p>Submitted by {node.artist}</p>
+                        <br/>
                     </div>
                 )
             })}
@@ -31,8 +28,8 @@ const PageTemplate = ({ ...props }) => {
 export default PageTemplate;
 
 export const query = graphql`
-query ($slug: String!) {
-    allContentfulFanArt(filter: {story: {slug: {eq: $slug}}}) {
+query {
+    allContentfulFanArt {
         edges {
             node {
                 title
