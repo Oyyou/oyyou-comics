@@ -30,15 +30,19 @@ const NavigationControls = ({ ...props }) => {
 
   return (
     <div className='controls-container'>
-      {prevPath.length > 0 &&
+      {prevPath.length > 0 ?
         <Link to={prevPath}>
           <button>&lt;</button>
-        </Link>
+        </Link> :
+        <div>
+        </div>
       }
-      {nextPath.length > 0 &&
+      {nextPath.length > 0 ?
         <Link to={nextPath}>
           <button>&gt;</button>
-        </Link>
+        </Link> :
+        <div>
+        </div>
       }
     </div>
   )

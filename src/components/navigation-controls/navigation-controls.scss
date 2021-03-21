@@ -2,10 +2,11 @@
   display: flex;
   flex-direction: row;
 
-  &>a {
+  &>* {
     flex-basis: 50%;
     &>button{
       width: 100%;
+      min-height: 48px;
     }
   }
 }

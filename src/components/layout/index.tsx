@@ -39,7 +39,7 @@ const Layout = ({ ...props }) => {
       return description;
     }
 
-    return "A collection of comics created by Niall A Lewin while lay in bad";
+    return "A collection of comics created by Oyyou";
   }
 
   return (
