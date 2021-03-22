@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { graphql } from 'gatsby'
+import { Helmet } from 'react-helmet'
 import get from 'lodash/get'
 import { Book, Layout, NavigationControls } from './../../components'
 import './story.scss'
@@ -21,7 +22,7 @@ const Story = ({ ...props }) => {
   const otherStories = get(props, "data.otherBooks.edges");
   const prevBook = otherStories.filter(c => c.node.book === book - 1);
   const nextBook = otherStories.filter(c => c.node.book === book + 1);
-  
+
   const prevPath = prevBook.length > 0 ?
     `/stories/${slug}/${book - 1}` :
     '';
@@ -30,9 +31,13 @@ const Story = ({ ...props }) => {
     '';
 
   const title = stories[0].node.story.title;
+  const image = stories[0].node.image.fluid.src;
 
   return (
     <Layout title={title}>
+      <Helmet>
+        <meta property="og:image" content={image} />
+      </Helmet>
       <Book stories={stories} />
       <NavigationControls prevPath={prevPath} nextPath={nextPath} />
     </Layout>

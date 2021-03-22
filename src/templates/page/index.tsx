@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql, Link, navigate } from 'gatsby'
-import Img from 'gatsby-image'
+import { Helmet } from 'react-helmet'
 import get from 'lodash/get'
 import { useSwipeable } from 'react-swipeable'
 import { Layout, Page, NavigationControls } from './../../components'
@@ -28,9 +28,13 @@ const PageTemplate = ({ ...props }) => {
   });
 
   const title = comic.story.title;
+  const image = comic.image.fluid.src;
 
   return (
     <Layout title={comic.title} swipeHandlers={handlers}>
+      <Helmet>
+          <meta property="og:image" content={image} />
+      </Helmet>
       <Link to={`/stories/${slug}/1`}>
         <h2>{title}</h2>
       </Link>
@@ -58,6 +62,7 @@ query ($slug: String!, $book: Int!, $page: Int!) {
         image {
             fluid (maxWidth: 800) {
                 ...GatsbyContentfulFluid_withWebp
+                src
             }
         }
     }

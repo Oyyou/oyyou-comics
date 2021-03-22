@@ -56,6 +56,8 @@ const Layout = ({ ...props }) => {
         <title>{getTitle()}</title>
         <meta name="description" content={getDescription()} />
         <meta name="author" content="Niall Lewin" />
+        <meta property="og:title" content={getTitle()} />
+        <meta property="og:description" content={getDescription()} />
       </Helmet>
       <nav className="header">
         <Link to="/">
