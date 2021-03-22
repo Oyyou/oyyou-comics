@@ -37,8 +37,12 @@ h3 {
 	font-size:  #{"min(5vw, 30px)"};
 }
 
-p, a {
+h4 {
 	font-size:  #{"min(4vw, 25px)"};
+}
+
+p, a, label {
+	font-size:  #{"min(3vw, 20px)"};
 }
 
 a {

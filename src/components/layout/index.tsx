@@ -1,6 +1,7 @@
 import React from 'react'
 import { graphql, Link, useStaticQuery } from 'gatsby'
 import { Helmet } from 'react-helmet'
+import { SignUpForm } from './../../components'
 import '../../styles/main.scss'
 import './layout.scss'
 
@@ -86,7 +87,8 @@ const Layout = ({ ...props }) => {
         </aside>
       </div>
       <footer>
-        <p>Built by N+L.</p>
+        <SignUpForm />
+        <p className="built-by">Built by N+L.</p>
       </footer>
     </div>
   )
