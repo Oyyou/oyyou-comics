@@ -7,12 +7,19 @@ import { Layout, Page } from '../components'
 
 const IndexPage = ({ ...props }) => {
 
-  const story = get(props, "data.contentfulComic");
+  const stories = get(props, "data.allContentfulComic.edges");
 
   return (
     <Layout>
-      <h2>Latest post</h2>
-      <Page story={story} />
+      <h2>Latest posts</h2>
+      {stories.map(({ node }) => {
+        return (
+          <React.Fragment key={node.title}>
+            <Page story={node} />
+            <br />
+          </React.Fragment>
+        )
+      })}
     </Layout>
   )
 }
@@ -21,19 +28,24 @@ export default IndexPage
 
 export const query = graphql`
 query {
-    contentfulComic {
-        title
-        book
-        page
-        story {
+    allContentfulComic(limit: 5) {
+      edges {
+        node {
+          title
+          book
+          page
+          story {
             title
             slug
-        }
-        node_locale
-        image {
+          }
+          node_locale
+          image {
             fluid (maxWidth: 800) {
-                ...GatsbyContentfulFluid_withWebp
+              ...GatsbyContentfulFluid_withWebp
             }
+          }
         }
+      }
     }
-}`
+  }
+`

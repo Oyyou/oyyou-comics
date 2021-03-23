@@ -10,7 +10,7 @@ const Page = ({ ...props }) => {
   return (
     <div className="page-container">
       <Link to={`/stories/${story.story.slug}/${story.book}/${story.page}`}>
-        <h3>{`${story.book}.${story.page} - ${story.title}`}</h3>
+        <h3>{`${story.story.title} ${story.book}.${story.page} - ${story.title}`}</h3>
       </Link>
       <Img fluid={story.image.fluid} />
     </div>

@@ -22,13 +22,14 @@
     display: flex;
     flex-direction: row;
     flex-flow: wrap;
+    justify-content: space-between;
 
     article {
-        flex-basis: 75%;
+        flex-basis: 74%;
     }
 
     aside {
-        flex-basis: 25%;
+        flex-basis: 24%;
     }
 
     @media (max-width: 600px)  {

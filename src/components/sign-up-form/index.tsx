@@ -17,7 +17,7 @@ const SignUpForm = ({ ...props }) => {
         });
 
         if (response.result === "error") {
-            setResponse(response.msg);
+            setResponse("Something went wrong");
             setIsValid(false);
         } else {
             setResponse("Thank you for signing up - we'll collect your soul within 6-9 working days");
