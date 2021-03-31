@@ -1,6 +1,7 @@
 
 import React from "react"
 import PropTypes from "prop-types"
+import Script from "react-inline-script"
 
 export default function HTML(props) {
 
